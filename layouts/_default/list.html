@@ -1,0 +1,41 @@
+{{ define "main" -}}
+<main class="content">
+    {{ with .Content }}
+    <div>
+      {{.}}
+    </div>
+    {{ end }}
+
+    
+    {{ range (.Paginate ( .Pages )).Pages -}}
+    <div class="post-item">
+      <h2 class="post-title">{{ .Title }}</h2>
+      <a href="{{ .RelPermalink }}" class="post-link">Read</a>
+      <div class="post-meta">
+        {{ if gt .ReadingTime 1 }}
+            {{ .Scratch.Set "readingTime" "minutes" }}
+        {{ else }}
+            {{ .Scratch.Set "readingTime" "minute" }}
+        {{ end }}
+        <span class="read-time">{{ .ReadingTime }} {{ .Scratch.Get "readingTime" }}</span>
+        <span class="pub-date">{{ .Date.Format "02 Jan, 2006" }}</span>
+      </div>
+      {{ if .Params.description}}
+      <p class="post-desc">
+        {{ .Description }}
+      </p>
+      {{ end }}
+      {{ with .Params.tags }}
+				<div class="post-badges">
+					{{ range . }}
+					<div class="badge {{ . | urlize }}">
+						<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+					</div>
+					{{ end }}
+				</div>
+				{{ end }}
+    </div>
+    {{ end -}}
+</main>
+{{ template "_internal/pagination.html" . -}}
+{{ end -}}

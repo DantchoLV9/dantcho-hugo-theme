@@ -1,0 +1,17 @@
+<header>
+	<nav id="navigation-bar">
+		{{ $currentPage := . }}
+		<div class="nav-links">
+		{{ range .Site.Menus.main }}
+			<a class="nav-link nav-element nav-link-hover-effect {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">
+				{{ .Name }}
+			</a>
+		{{ end }}
+		</div>
+		<div class="burger">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
+		</div>
+	</nav>
+</header>
