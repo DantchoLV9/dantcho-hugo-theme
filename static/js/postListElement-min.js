@@ -1,0 +1,1 @@
+const elementCollapse=()=>{const e=document.querySelectorAll(".post-item");e.forEach(t=>{t.firstElementChild.addEventListener("click",()=>{currentPostElement=t,e.forEach(e=>{e!==currentPostElement&&e.classList.remove("active")}),t.classList.toggle("active")})})};elementCollapse();

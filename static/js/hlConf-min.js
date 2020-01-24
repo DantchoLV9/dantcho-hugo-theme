@@ -1,0 +1,1 @@
+hljs.configure({tabReplace:"  "}),document.addEventListener("DOMContentLoaded",e=>{document.querySelectorAll("div code").forEach(e=>{hljs.highlightBlock(e)})});

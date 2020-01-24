@@ -1,0 +1,1 @@
+const tableWrap=()=>{document.querySelectorAll("table").forEach(e=>{let t=document.createElement("div");e.parentNode.insertBefore(t,e),t.classList.add("table"),t.appendChild(e)})};document.querySelectorAll("table").forEach(e=>{let t=document.createElement("div");e.parentNode.insertBefore(t,e),t.classList.add("table"),t.appendChild(e)});

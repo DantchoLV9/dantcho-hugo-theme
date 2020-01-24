@@ -12,7 +12,6 @@
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
 	<meta name="robots" content="index, follow" />
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="{{ "css/atom-one-dark.css" | relURL }}">
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 	{{ with .OutputFormats.Get "RSS" -}}
 		{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
