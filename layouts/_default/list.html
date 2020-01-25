@@ -17,10 +17,14 @@
         {{ else }}
             {{ .Scratch.Set "readingTime" "minute" }}
         {{ end }}
+        {{ if gt .ReadingTime 0 }}
         <span class="read-time">{{ .ReadingTime }} {{ .Scratch.Get "readingTime" }}</span>
+        {{ end }}
+        {{ if .Params.date }}
         <span class="pub-date">{{ .Date.Format "02 Jan, 2006" }}</span>
+        {{ end }}
       </div>
-      {{ if .Params.description}}
+      {{ if .Params.description }}
       <p class="post-desc">
         {{ .Description }}
       </p>
