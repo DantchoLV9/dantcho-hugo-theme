@@ -12,14 +12,14 @@
 	{{ hugo.Generator }}
 	{{ with $.Param "description" }}<meta name="description" content="{{ . }}" />{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
-	{{- with .Site.Params.favicon }}
-	{{ end -}}
 	{{ if .IsHome -}}
 	<title>{{ .Site.Title }}</title>
 	{{- else -}}
 	<title>{{ .Title }} | {{ .Site.Title }}</title>
 	{{- end }}
+	{{- with .Site.Params.favicon }}
 	<link rel="shortcut icon" href="{{ . | absURL }}" type="image/x-icon" />
+	{{ end -}}
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 	{{ with .OutputFormats.Get "RSS" -}}
