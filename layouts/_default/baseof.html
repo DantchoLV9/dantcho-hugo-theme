@@ -8,7 +8,17 @@
 	<meta name="robots" content="index, follow" />
 	{{ template "_internal/opengraph.html" . -}}
 	{{ template "_internal/twitter_cards.html" . -}}
-	{{ template "_internal/google_analytics.html" . -}}
+	{{ with .Site.GoogleAnalytics }}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66639861-3"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', '{{ . }}');
+	</script>
+	{{ end }}
 	{{ hugo.Generator }}
 	{{ with $.Param "description" }}<meta name="description" content="{{ . }}" />{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}" />{{ end }}
