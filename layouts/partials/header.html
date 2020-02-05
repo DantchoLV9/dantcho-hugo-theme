@@ -3,7 +3,7 @@
 		{{ $currentPage := . }}
 		<div class="nav-links">
 		{{ range .Site.Menus.main }}
-			<a class="nav-link nav-element nav-link-hover-effect {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">
+			<a {{ if eq .Title "Search" }}id="search-link"{{ end }} class="nav-link nav-element nav-link-hover-effect {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" href="{{ .URL }}">
 				{{ .Name }}
 			</a>
 		{{ end }}
